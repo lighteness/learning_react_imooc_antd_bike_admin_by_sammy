@@ -13,10 +13,10 @@ import Messages from "./pages/ui/messages";
 import Tabs from "./pages/ui/tabs";
 // import Gallery from './pages/ui/gallery'
 // import Carousel from './pages/ui/carousel'
-// import FormLogin from './pages/form/login'
-// import FormRegister from './pages/form/register'
-// import BasicTable from './pages/table/basicTable'
-// import HighTable from './pages/table/highTable'
+import FormLogin from "./pages/form/login";
+import FormRegister from "./pages/form/register";
+import BasicTable from "./pages/table/basicTable";
+import HighTable from "./pages/table/highTable";
 // import Rich from './pages/rich'
 // import City from './pages/city/index'
 // import Order from './pages/order/index'
@@ -35,6 +35,7 @@ export default class ERouter extends React.Component {
       <HashRouter>
         <App>
           <Switch>
+            {/*<Route path="/login" component={Login} />*/}
             <Route
               path="/"
               render={() => (
@@ -47,6 +48,10 @@ export default class ERouter extends React.Component {
                     <Route path="/ui/notification" component={Notice} />
                     <Route path="/ui/messages" component={Messages} />
                     <Route path="/ui/tabs" component={Tabs} />
+                    <Route path="/form/login" component={FormLogin} />
+                    <Route path="/form/reg" component={FormRegister} />
+                    <Route path="/table/basic" component={BasicTable} />
+                    <Route path="/table/high" component={HighTable} />
                     <Redirect to="/home" />
                     {/* <Route component={NoMatch} /> */}
                   </Switch>
