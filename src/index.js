@@ -1,14 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import NavLeft from "./components/NavLeft";
-import Admin from "./admin.js";
+
 import Router from "./router";
-import Menu from "./Menu";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavLeft />
+    <Router />
   </React.StrictMode>,
   document.getElementById("root")
 );
