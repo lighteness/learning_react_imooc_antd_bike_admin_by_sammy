@@ -371,6 +371,8 @@ module.exports = function(webpackEnv) {
                 ),
                 
                 plugins: [
+                  ["import", { "libraryName": "antd", "style": true }],
+
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
@@ -419,6 +421,28 @@ module.exports = function(webpackEnv) {
                 inputSourceMap: shouldUseSourceMap,
               },
             },
+            {
+              test: /\.less$/,
+              use: [{
+                loader: 'style-loader',
+              }, {
+                loader: 'css-loader', // translates CSS into CommonJS
+              }, {
+                loader: 'less-loader', // compiles Less to CSS
+                options: {
+                  lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
+                    modifyVars: {
+                      'primary-color': '#f9c700',
+                      'link-color': '#1DA57A',
+                      'border-radius-base': '2px',
+                    },
+                    javascriptEnabled: true,
+                  },
+                },
+              }],
+              // ...other rules
+            },
+
             // "postcss" loader applies autoprefixer to our CSS.
             // "css" loader resolves paths in CSS and adds assets as dependencies.
             // "style" loader turns CSS into JS modules that inject <style> tags.
